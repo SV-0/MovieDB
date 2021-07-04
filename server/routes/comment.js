@@ -3,9 +3,6 @@ import Comment from "../models/Comment.js";
 import auth from "../middleware/auth.js";
 
 const router = express.Router();
-//=================================
-//             Subscribe
-//=================================
 
 router.post("/saveComment", auth, (req, res) => {
   const comment = new Comment(req.body);

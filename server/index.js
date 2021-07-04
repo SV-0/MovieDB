@@ -1,5 +1,4 @@
 import express from "express";
-import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -13,8 +12,8 @@ import usersRoutes from "./routes/users.js";
 const app = express();
 dotenv.config();
 
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+app.use(express.json({ limit: "30mb", extended: true }));
+app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cookieParser());
 app.use(cors());
 
@@ -24,7 +23,6 @@ app.use("/api/like", likeRoutes);
 app.use("/api/favorite", favoriteRoutes);
 
 app.use("/uploads", express.static("uploads"));
-// Set static folder
 app.use(express.static("client/build"));
 
 // index.html for all page routes

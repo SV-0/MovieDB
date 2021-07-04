@@ -4,10 +4,6 @@ import auth from "../middleware/auth.js";
 
 const router = express.Router();
 
-//=================================
-//             User
-//=================================
-
 router.get("/auth", auth, (req, res) => {
   res.status(200).json({
     _id: req.user._id,

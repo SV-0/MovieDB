@@ -5,10 +5,6 @@ import auth from "../middleware/auth.js";
 
 const router = express.Router();
 
-//=================================
-//             Likes DisLikes
-//=================================
-
 router.post("/getLikes", (req, res) => {
   let variable = {};
   if (req.body.videoId) {
@@ -46,10 +42,8 @@ router.post("/upLike", (req, res) => {
   }
 
   const like = new Like(variable);
-  //save the like information data in MongoDB
   like.save((err, likeResult) => {
     if (err) return res.json({ success: false, err });
-    //In case disLike Button is already clicked, we need to decrease the dislike by 1
     Dislike.findOneAndDelete(variable).exec((err, disLikeResult) => {
       if (err) return res.status(400).json({ success: false, err });
       res.status(200).json({ success: true });
@@ -94,10 +88,8 @@ router.post("/upDisLike", (req, res) => {
   }
 
   const disLike = new Dislike(variable);
-  //save the like information data in MongoDB
   disLike.save((err, dislikeResult) => {
     if (err) return res.json({ success: false, err });
-    //In case Like Button is already clicked, we need to decrease the like by 1
     Like.findOneAndDelete(variable).exec((err, likeResult) => {
       if (err) return res.status(400).json({ success: false, err });
       res.status(200).json({ success: true });
