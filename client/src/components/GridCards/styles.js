@@ -2,7 +2,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles({
   media: {
-    maxHeight: "100%",
+    maxWidth: "100%",
+    maxHeight: "100px",
     postion: "absolute",
     paddingTop: "150%",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -19,7 +20,7 @@ export default makeStyles({
     position: "relative",
     flexDirection: "column",
     justifyContent: "space-between",
-    borderRadius: "0",
+    borderRadius: "5px",
     height: "100%",
     position: "relative",
   },
@@ -32,8 +33,9 @@ export default makeStyles({
     margin: "20px",
   },
   title: {
-    padding: "0 16px",
     textAlign: "center",
+    color: "black",
+    justifyContent: "center",
   },
   cardActions: {
     padding: "0 16px 8px 16px",

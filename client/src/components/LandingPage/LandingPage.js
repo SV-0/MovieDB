@@ -30,9 +30,9 @@ function LandingPage() {
     fetch(endpoint)
       .then((result) => result.json())
       .then((result) => {
-        // console.log(result)
-        // console.log('Movies',...Movies)
-        // console.log('result',...result.results)
+        // console.log(result);
+        // console.log("Movies", ...Movies);
+        // console.log("result", ...result.results);
         setMovies([...Movies, ...result.results]);
         setMainMovieImage(MainMovieImage || result.results[0]);
         setCurrentPage(result.page);
@@ -62,19 +62,19 @@ function LandingPage() {
 
   return (
     <div style={{ width: "100%", margin: "0" }}>
-      {MainMovieImage && <MainImage image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${MainMovieImage.backdrop_path}`} title={MainMovieImage.original_title} text={MainMovieImage.overview} />}
+      {MainMovieImage && <MainImage image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${MainMovieImage.backdrop_path}`} title={MainMovieImage.title} text={MainMovieImage.overview} />}
 
       <div style={{ width: "85%", margin: "1rem auto" }}>
-        <Typography variant="h5" component="h2">
+        <Typography style={{ color: "black", textAlign: "center" }} variant="h3" component="h2">
           {" "}
-          Movies by latest{" "}
+          Latest Movies{" "}
         </Typography>
         <hr />
         <Grid className={classes.container} container alignItems="stretch" spacing={3}>
           {Movies &&
             Movies.map((movie, index) => (
               <Grid key={index} item xs={12} sm={6} md={3} lg={3}>
-                <GridCard image={movie.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}` : null} movieId={movie.id} movieName={movie.original_title} />
+                <GridCard image={movie.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}` : null} movieId={movie.id} movieName={movie.title} />
               </Grid>
             ))}
         </Grid>

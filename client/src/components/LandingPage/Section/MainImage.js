@@ -19,8 +19,13 @@ function MainImage(props) {
     >
       <div>
         <div style={{ position: "absolute", maxWidth: "500px", bottom: "2rem", marginLeft: "2rem" }}>
-          <Typography style={{ color: "white" }}> {props.title} </Typography>
-          <p style={{ color: "white", fontSize: "1rem" }}>{props.text} </p>
+          <Typography style={{ color: "white" }} variant="h3">
+            {" "}
+            {props.title}{" "}
+          </Typography>
+          <Typography style={{ color: "white", fontSize: "1rem" }} variant="h5">
+            {props.text}{" "}
+          </Typography>
         </div>
       </div>
     </div>
