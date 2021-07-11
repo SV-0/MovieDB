@@ -3,11 +3,9 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles({
   media: {
     maxWidth: "100%",
-    maxHeight: "100px",
     postion: "absolute",
     paddingTop: "150%",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
-    backgroundBlendMode: "darken",
   },
   border: {
     border: "solid",
