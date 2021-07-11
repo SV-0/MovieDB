@@ -4,7 +4,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import SingleComment from "./SingleComment";
 import ReplyComment from "./ReplyComment";
-import useStyles from "./styles";
+import useStyles from "./MovieInfo/styles";
 
 function Comments(props) {
   const user = useSelector((state) => state.user);

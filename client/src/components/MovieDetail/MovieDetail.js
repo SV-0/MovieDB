@@ -8,7 +8,7 @@ import LikeDislikes from "./Sections/LikeDislikes";
 import { API_URL, IMAGE_BASE_URL, IMAGE_SIZE } from "../Config";
 import GridCards from "../GridCards/GridCards";
 import MainImage from "../LandingPage/Section/MainImage";
-import MovieInfo from "./Sections/MovieInfo";
+import MovieInfo from "./Sections/MovieInfo/MovieInfo";
 import Favorite from "./Sections/Favorite";
 import useStyles from "./styles";
 
