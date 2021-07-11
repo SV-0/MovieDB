@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Typography, Grid, Container, Button } from "@material-ui/core";
+import { Typography, Grid, Button } from "@material-ui/core";
 import dotenv from "dotenv";
 
 import { API_URL, IMAGE_BASE_URL, IMAGE_SIZE, POSTER_SIZE } from "../Config";
@@ -30,9 +30,6 @@ function LandingPage() {
     fetch(endpoint)
       .then((result) => result.json())
       .then((result) => {
-        // console.log(result);
-        // console.log("Movies", ...Movies);
-        // console.log("result", ...result.results);
         setMovies([...Movies, ...result.results]);
         setMainMovieImage(MainMovieImage || result.results[0]);
         setCurrentPage(result.page);
