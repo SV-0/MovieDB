@@ -1,18 +1,38 @@
 import React, { useEffect, useState } from "react";
-import { Typography, Table, IconButton, TableCell, TableRow, TableContainer, TableBody, TableHead, Paper, Button } from "@material-ui/core";
+import { Typography, Table, IconButton, TableCell, TableRow, TableContainer, TableBody, TableHead, Paper, Button, Popover, Card, CardMedia } from "@material-ui/core";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { IMAGE_BASE_URL, POSTER_SIZE } from "./../Config";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  popover: {
+    pointerEvents: "none",
+  },
+  paper: {
+    padding: theme.spacing(1),
+  },
+}));
 
 function FavoritePage() {
   const user = useSelector((state) => state.user);
   const history = useHistory();
   const [Favorites, setFavorites] = useState([]);
   const [Loading, setLoading] = useState(true);
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
   let variable = { userFrom: localStorage.getItem("userId") };
-  console.log(variable);
+
+  const handlePopoverOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
   useEffect(() => {
     fetchFavoredMovie();
   }, []);
@@ -47,8 +67,6 @@ function FavoritePage() {
     history.push(`/movie/${movieId}`);
   };
   const renderCards = Favorites.map((favorite, index) => {
-    const content = <div>{favorite.moviePost ? <img src={`${IMAGE_BASE_URL}${POSTER_SIZE}${favorite.moviePost}`} /> : "no image"}</div>;
-    console.log(favorite.movieTitle);
     return (
       <TableRow key={index}>
         <TableCell align="center" style={{ borderBottom: "none" }}>

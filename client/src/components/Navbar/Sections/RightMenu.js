@@ -4,7 +4,8 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 import { Menu, MenuItem, ListItem, ListItemIcon, ListItemText, Button, IconButton, Popper, Paper, Grow, ClickAwayListener } from "@material-ui/core";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { makeStyles } from "@material-ui/core/styles";
 import { USER_SERVER } from "../../Config";
@@ -84,26 +85,26 @@ function RightMenu(props) {
     return (
       <>
         <IconButton aria-controls="customized-menu" aria-haspopup="true" variant="contained" onClick={handleClick}>
-          <AccountCircleIcon fontSize="medium" />
+          <AccountCircleIcon fontSize="medium" color="secondary" />
         </IconButton>
         <StyledMenu id="customized-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
           <MenuItem>
             <ListItemIcon>
-              <AccountCircleIcon fontSize="small" />
+              <AccountCircleIcon fontSize="small" color="secondary" />
             </ListItemIcon>
             {user.userData.name && user.userData.name && <ListItemText primary={`${user.userData.name} ${user.userData.lastname}`} />}
           </MenuItem>
           <StyledMenuItem button component={Link} to="/favorite" onClose={handleClose}>
             <ListItemIcon>
-              <InboxIcon fontSize="small" />
+              <FavoriteIcon fontSize="small" color="secondary" />
             </ListItemIcon>
-            <ListItemText primary="favorites" />
+            <ListItemText primary="Favorites" />
           </StyledMenuItem>
           <StyledMenuItem button onClick={logout}>
             <ListItemIcon>
-              <InboxIcon fontSize="small" />
+              <PowerSettingsNewIcon fontSize="small" color="secondary" />
             </ListItemIcon>
-            <ListItemText primary="logout" />
+            <ListItemText primary="Logout" />
           </StyledMenuItem>
         </StyledMenu>
       </>

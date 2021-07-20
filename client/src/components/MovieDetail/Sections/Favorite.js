@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Button } from "@material-ui/core";
+import { Button, Badge } from "@material-ui/core";
 import { useSelector } from "react-redux";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
 function Favorite(props) {
   const user = useSelector((state) => state.user);
@@ -69,8 +71,7 @@ function Favorite(props) {
   return (
     <>
       <Button onClick={onClickFavorite}>
-        {" "}
-        {!Favorited ? "Add to Favorite" : "Not Favorite"} {FavoriteNumber}
+        <Badge badgeContent={FavoriteNumber}>{!Favorited ? <FavoriteBorderIcon fontSize="medium" color="secondary" /> : <FavoriteIcon fontSize="medium" color="secondary" />}</Badge>
       </Button>
     </>
   );
