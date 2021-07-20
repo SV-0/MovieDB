@@ -97,7 +97,7 @@ function MovieDetailPage(props) {
                 Casts.map(
                   (cast, index) =>
                     cast.profile_path && (
-                      <Grid key={index} item xs={12} sm={6} md={3} lg={3}>
+                      <Grid key={index} item xs={12} sm={6} md={6} lg={4}>
                         <GridCards actor image={`${IMAGE_BASE_URL}${POSTER_SIZE}${cast.profile_path}`} name={cast.name} characterName={cast.character} />
                       </Grid>
                     )

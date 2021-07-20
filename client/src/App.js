@@ -5,10 +5,10 @@ import Auth from "./hoc/auth";
 import LandingPage from "./components/LandingPage/LandingPage";
 import MovieDetail from "./components/MovieDetail/MovieDetail";
 import Footer from "./components/Footer/Footer";
-import NavBar from "./components/NavBar/NavBar";
+import NavBar from "./components/Navbar/NavBar";
 import RegisterPage from "./components/Auth/RegisterPage";
 import LoginPage from "./components/Auth/LoginPage";
-
+import FavoritePage from "./components/FavoritePage/FavoritePage";
 function App() {
   function ScrollToTop() {
     const { pathname } = useLocation();
@@ -29,6 +29,7 @@ function App() {
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/movie/:movieId" component={Auth(MovieDetail, null)} />
+          <Route exact path="/favorite" component={Auth(FavoritePage, null)} />
         </Switch>
       </div>
       <Footer />

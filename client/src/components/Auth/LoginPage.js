@@ -85,7 +85,7 @@ function LoginPage(props) {
                       <p style={{ color: "#ff0000bf", fontSize: "1rem", padding: "0.3rem" }}>{formErrorMessage}</p>
                     </label>
                   )}
-                  <Grid container justify="flex-end">
+                  <Grid container justifyContent="flex-end">
                     <Grid item>
                       <Button component={Link} to="/register">
                         Don't have an account? Sign Up
