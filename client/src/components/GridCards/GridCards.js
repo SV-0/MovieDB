@@ -13,19 +13,18 @@ function GridCards(props) {
 
   if (actor) {
     return (
-      <Card className={classes.card} raised elevation={6}>
-        <CardMedia className={classes.media} style={{ paddingTop: "110%" }} title={name} image={image} />
-        <CardContent>
-          <Typography className={classes.title} color="textSecondary" variant="h6">
-            {name}
-          </Typography>
-          <Typography className={classes.title} color="textSecondary" variant="h6">
-            as
-          </Typography>
-          <Typography className={classes.title} color="textSecondary" variant="h6">
-            {characterName}
-          </Typography>
-        </CardContent>
+      <Card className={classes.root} raised elevation={6}>
+        <CardMedia className={classes.media1} title={name} image={image} />
+        <div className={classes.details}>
+          <CardContent className={classes.content}>
+            <Typography className={classes.title} style={{ fontWeight: "bold" }} color="textSecondary" variant="h6">
+              {name}
+            </Typography>
+            <Typography className={classes.title} color="textSecondary" variant="h6">
+              {characterName}
+            </Typography>
+          </CardContent>
+        </div>
       </Card>
     );
   } else {
@@ -35,7 +34,7 @@ function GridCards(props) {
           <ButtonBase component="span" name="test" className={classes.cardAction} onClick={openMovie}>
             <CardMedia className={classes.media} image={image} title={movieName} />
             <CardContent>
-              <Typography className={classes.title} color="textSecondary" variant="h5">
+              <Typography className={classes.title} style={{ textAlign: "center" }} color="textSecondary" variant="h5">
                 {movieName}
               </Typography>
             </CardContent>

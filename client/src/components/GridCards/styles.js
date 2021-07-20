@@ -7,6 +7,13 @@ export default makeStyles({
     paddingTop: "150%",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
+  media1: {
+    width: 125,
+  },
+  content: {
+    padding: "16px 16px",
+    flex: "1 0 auto",
+  },
   border: {
     border: "solid",
   },
@@ -22,18 +29,28 @@ export default makeStyles({
     height: "100%",
     position: "relative",
   },
+  card1: {
+    display: "flex",
+    position: "relative",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    borderRadius: "5px",
+    height: "100%",
+    position: "relative",
+  },
   grid: {
     display: "flex",
   },
+  root: {
+    display: "flex",
+    height: 150,
+  },
   details: {
     display: "flex",
-    justifyContent: "space-between",
-    margin: "20px",
+    flexDirection: "column",
   },
   title: {
-    textAlign: "center",
     color: "black",
-    justifyContent: "center",
   },
   cardActions: {
     padding: "0 16px 8px 16px",
